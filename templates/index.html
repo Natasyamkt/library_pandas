@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Instagram Engagement Rate</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Hitung Engagement Rate Instagram</h1>
+        <form method="POST">
+            <input type="number" name="likes" placeholder="Likes" required>
+            <input type="number" name="comments" placeholder="Comments" required>
+            <input type="number" name="shares" placeholder="Shares" required>
+            <input type="number" name="followers" placeholder="Followers" required>
+            <button type="submit">Hitung</button>
+        </form>
+
+        {% if er is not none %}
+            <p class="result">Engagement Rate: <strong>{{ er }}%</strong></p>
+        {% endif %}
+
+        <h2>Data Followers</h2>
+        <div class="table-container">
+            {{ table_html | safe }}
+        </div>
+    </div>
+</body>
+</html>
